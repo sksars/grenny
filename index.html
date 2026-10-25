@@ -32,6 +32,16 @@ canvas{display:block}
 
 #pr{position:fixed;left:0;right:0;top:57%;text-align:center;font-size:16px;color:var(--gold);pointer-events:none;text-shadow:0 2px 4px #000}#bL{right:200px}#bQ,#bG{bottom:calc(112px + env(safe-area-inset-bottom,0px))}#bQ{right:24px}#bG{right:112px}
 #jb{position:fixed;width:130px;height:130px;border-radius:50%;border:2px solid rgba(232,220,198,.4);background:rgba(20,14,10,.3);pointer-events:none;display:none;z-index:5}#jk{position:absolute;left:35px;top:35px;width:60px;height:60px;border-radius:50%;background:rgba(232,220,198,.5);border:2px solid rgba(232,220,198,.8)}#bC{right:200px;bottom:calc(112px + env(safe-area-inset-bottom,0px))}#bA{right:24px;bottom:calc(200px + env(safe-area-inset-bottom,0px))}
+
+/* Theme-matched SK SARS splash */
+#sksars-boot.theme-granny{background:radial-gradient(ellipse at 50% 24%,#4a1718 0%,#120909 56%,#050303 100%)}
+#sksars-boot.theme-granny .sk-card{border-color:#d32f2f66;box-shadow:0 18px 70px #000b,0 0 36px #d32f2f22}
+#sksars-boot.theme-granny .sk-logo{background:linear-gradient(145deg,#d32f2f,#f3b64a 58%,#7c1e20);box-shadow:0 0 35px #d32f2f66}
+#sksars-boot.theme-granny .sk-fill{background:linear-gradient(90deg,#d32f2f,#f3b64a,#ffffff);box-shadow:0 0 16px #d32f2f88}
+#sksars-boot .sk-theme-line{margin:-17px 0 22px;color:#d9e4ef;font-size:12px;letter-spacing:.5px}
+#sksars-boot .sk-developer{margin:-10px 0 24px;color:#8fa8c0;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+#sksars-boot .sk-developer strong{color:#fff;font-size:12px;letter-spacing:.7px}
+
 </style>
 <style id="sksars-boot-style">
 /* SK SARS branded boot/loading screen */
@@ -43,7 +53,7 @@ canvas{display:block}
 </style>
 </head>
 <body>
-<div id="sksars-boot" role="status" aria-live="polite"><div class="sk-card"><div class="sk-logo" aria-label="SK SARS logo"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M20 20h60v60H20z" stroke="white" stroke-width="4" rx="12"/><path d="M65 32H43c-8 0-13 5-13 12s5 12 13 12h14c5 0 8 3 8 7s-3 7-8 7H31" stroke="white" stroke-width="7" stroke-linecap="round"/><path d="M70 22l8 8-8 8" stroke="#dffaff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sk-brand">SK SARS</div><div class="sk-tag">Gaming • Worlds • Adventure</div><p class="sk-status" id="sksars-status">Starting game engine…</p><div class="sk-track"><div class="sk-fill" id="sksars-fill"></div></div><div class="sk-percent" id="sksars-percent">0%</div><div class="sk-hint">Please keep this page open while loading</div><button class="sk-reload" id="sksars-reload" type="button">↻ Reload Game</button></div></div>
+<div id="sksars-boot" class="theme-granny" role="status" aria-live="polite"><div class="sk-card"><div class="sk-logo" aria-label="SK SARS logo"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M20 20h60v60H20z" stroke="white" stroke-width="4" rx="12"/><path d="M65 32H43c-8 0-13 5-13 12s5 12 13 12h14c5 0 8 3 8 7s-3 7-8 7H31" stroke="white" stroke-width="7" stroke-linecap="round"/><path d="M70 22l8 8-8 8" stroke="#dffaff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sk-brand">SK SARS</div><div class="sk-tag">HORROR SURVIVAL</div><div class="sk-theme-line">Escape the house. Survive the night.</div><div class="sk-developer">Developed by <strong>Sumit Atariya</strong></div><p class="sk-status" id="sksars-status">Starting game engine…</p><div class="sk-track"><div class="sk-fill" id="sksars-fill"></div></div><div class="sk-percent" id="sksars-percent">0%</div><div class="sk-hint">Please keep this page open while loading</div><button class="sk-reload" id="sksars-reload" type="button">↻ Reload Game</button></div></div>
 <script id="sksars-boot-script">
 (function(){var root=document.getElementById('sksars-boot'),fill=document.getElementById('sksars-fill'),pct=document.getElementById('sksars-percent'),status=document.getElementById('sksars-status'),reload=document.getElementById('sksars-reload');if(!root)return;var value=0,finished=false,timer=null;function set(n,label){value=Math.max(value,Math.min(100,n));fill.style.width=value+'%';pct.textContent=Math.round(value)+'%';if(label)status.textContent=label;}reload.addEventListener('click',function(){location.reload();});function fail(message){if(finished)return;root.classList.add('sk-failed');status.textContent=message||'Loading failed. Check your internet and reload.';clearInterval(timer);}
 window.addEventListener('error',function(e){if(e&&e.message&&/script error/i.test(e.message))return;fail('A game resource failed. Tap Reload Game to try again.');});window.addEventListener('unhandledrejection',function(){fail('A game resource failed. Tap Reload Game to try again.');});
